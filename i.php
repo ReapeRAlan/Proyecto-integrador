@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION["userid"])){
   echo 'Prueaa';
 }else{
-  header("location: /pagina_final/Proyecto-integrador/Pagina/Login.php");
+  header("location: Login.php");
         exit();
 }
 

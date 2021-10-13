@@ -187,7 +187,7 @@
                 $_SESSION["typeu"] = 'Administrador'; 
             }
 
-            header("location: ../Inicio.html");
+            header("location: ../Inicio.php");
             exit();
    
         } else if($checkPwd === false) {

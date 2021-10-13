@@ -1,3 +1,13 @@
+<?php
+//Iniciando la sesión
+session_start();
+if (isset($_SESSION["userid"])){
+  echo 'Prueaa';
+}else{
+  header("location: Login.php");
+        exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
