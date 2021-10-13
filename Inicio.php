@@ -147,13 +147,13 @@ if (isset($_SESSION["userid"])){
 </div>
 
  <!-- First Container -->
- <div class="container-fluid bg-1 text-center" style="background-color: blue;">
+ <div class="container-fluid bg-1 text-center" style="background-color: yellow;">
     <!-- Cambiar numero al numero de el tema siguiente -->
-  <h1 class="margin text-left">1</h1>
+  <h1 class="margin text-left">2</h1>
    <!-- En el "style cambia el color a el de tu preferencia tomando en cuenta el color de la pagina -->
   <h3 class="container-fluid bg-2" style="background-color: black;">Aplicación de las propiedades mecánicas de los materiales </h3>
    <!-- Cambiar link a tema#.html que toque -->
-  <a href="temas/tema1.html" title="Tema"><img src="img/font.jpg" class="img-fluid " style="display:inline" alt="Bird" width="100%" ></a>
+  <a href="temas/tema2.html" title="Tema"><img src="img/5Strellas.jpg" class="img-fluid " style="display:inline" alt="Bird" width="100%" ></a>
    <!-- cambias la pequeña descripcion de el tema  y tambien cambia el color al mismo tono que la franja superior-->
   <h3 class="container-fluid bg-2"style="background-color: black;" > Un resorte es un objeto que puede ser deformado por una fuerza y volver a su forma original en la ausencia de esta.Los resortes vienen en una gran variedad de formas diferentes, pero el muelle en espiral de metal es probablemente el más familiar. Los resortes son una parte esencial de casi todos los dispositivos mecánicos moderadamente complejos; desde bolígrafos a motores de coches de carreras</h3>
 </div>
@@ -167,11 +167,11 @@ if (isset($_SESSION["userid"])){
  <!-- First Container -->
  <div class="container-fluid bg-1 text-center" style="background-color: green;">
     <!-- Cambiar numero al numero de el tema siguiente -->
-  <h1 class="margin text-left">1</h1>
+  <h1 class="margin text-left">2</h1>
    <!-- En el "style cambia el color a el de tu preferencia tomando en cuenta el color de la pagina -->
   <h3 class="container-fluid bg-2" style="background-color: black;">Aplicación de las propiedades mecánicas de los materiales </h3>
    <!-- Cambiar link a tema#.html que toque -->
-  <a href="temas/tema1.html" title="Tema"><img src="img/font.jpg" class="img-fluid " style="display:inline" alt="Bird" width="100%" ></a>
+  <a href="temas/tema1.html" title="Tema"><img src="img/#nombre de imagen" class="img-fluid " style="display:inline" alt="tema" width="100%" ></a>
    <!-- cambias la pequeña descripcion de el tema  y tambien cambia el color al mismo tono que la franja superior-->
   <h3 class="container-fluid bg-2"style="background-color: black;" > Un resorte es un objeto que puede ser deformado por una fuerza y volver a su forma original en la ausencia de esta.Los resortes vienen en una gran variedad de formas diferentes, pero el muelle en espiral de metal es probablemente el más familiar. Los resortes son una parte esencial de casi todos los dispositivos mecánicos moderadamente complejos; desde bolígrafos a motores de coches de carreras</h3>
 </div>
@@ -208,6 +208,25 @@ if (isset($_SESSION["userid"])){
   <h3 class="container-fluid bg-2" style="background-color: black;">Aplicación de las propiedades mecánicas de los materiales </h3>
    <!-- Cambiar link a tema#.html que toque -->
   <a href="temas/tema1.html" title="Tema"><img src="img/font.jpg" class="img-fluid " style="display:inline" alt="Bird" width="100%" ></a>
+   <!-- cambias la pequeña descripcion de el tema  y tambien cambia el color al mismo tono que la franja superior-->
+  <h3 class="container-fluid bg-2"style="background-color: black;" > Un resorte es un objeto que puede ser deformado por una fuerza y volver a su forma original en la ausencia de esta.Los resortes vienen en una gran variedad de formas diferentes, pero el muelle en espiral de metal es probablemente el más familiar. Los resortes son una parte esencial de casi todos los dispositivos mecánicos moderadamente complejos; desde bolígrafos a motores de coches de carreras</h3>
+</div>
+
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+  <br>
+  <br>
+  <br>
+</div>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center" style="background-color: yellow;">
+    <!-- Cambiar numero al numero de el tema siguiente -->
+  <h1 class="margin text-left">2</h1>
+   <!-- En el "style cambia el color a el de tu preferencia tomando en cuenta el color de la pagina -->
+  <h3 class="container-fluid bg-2" style="background-color: black;">Aplicación de las propiedades mecánicas de los materiales </h3>
+   <!-- Cambiar link a tema#.html que toque -->
+  <a href="temas/tema2.html" title="Tema"><img src="img/5Strellas.jpg" class="img-fluid " style="display:inline" alt="Bird" width="100%" ></a>
    <!-- cambias la pequeña descripcion de el tema  y tambien cambia el color al mismo tono que la franja superior-->
   <h3 class="container-fluid bg-2"style="background-color: black;" > Un resorte es un objeto que puede ser deformado por una fuerza y volver a su forma original en la ausencia de esta.Los resortes vienen en una gran variedad de formas diferentes, pero el muelle en espiral de metal es probablemente el más familiar. Los resortes son una parte esencial de casi todos los dispositivos mecánicos moderadamente complejos; desde bolígrafos a motores de coches de carreras</h3>
 </div>
