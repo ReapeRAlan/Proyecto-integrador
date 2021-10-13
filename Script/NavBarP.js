@@ -13,7 +13,7 @@ document.getElementById("Navbar").innerHTML =
         '<li><a href="#about">INICIO</a></li>'+
         '<li><a href="#contact">CONTACTANOS</a></li>'+
         '<li><a href="#temas">TEMAS</a></li>'+
-        '<li><a href="Index.php" class="glyphicon glyphicon-log-out ">CERRAR SECION</a></li>'+
+        '<li><a href="/Pagina_final/Proyecto-integrador/Pagina/includes/logout.inc.php" class="glyphicon glyphicon-log-out ">CERRAR SESION</a></li>'+
       "</ul>"+
     "</div>"+
   "</div>";
