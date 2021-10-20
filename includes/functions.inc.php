@@ -203,7 +203,7 @@
         $sentencia = $dbh->prepare("INSERT INTO usuarios (ID_Usuario, Nombre_usuario, Tipo_usuario, Password) VALUES (:userid, :fullname, :tuser, :pwd)");
         $sentencia->bindParam(':userid', $uid);
         $sentencia->bindParam(':fullname', $name);
-        $usertype = 'A';
+        $usertype = 'C';
         $sentencia->bindParam(':tuser',$usertype);
         //Encriptando la contraseña
         $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT); 

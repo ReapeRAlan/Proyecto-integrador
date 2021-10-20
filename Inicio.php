@@ -2,11 +2,25 @@
 //Iniciando la sesión
 session_start();
 if (isset($_SESSION["userid"])){
-  echo 'Prueaa';
 }else{
   header("location: Login.php");
         exit();
+
 }
+?>
+<?php
+if (isset($_SESSION["userid"])){
+  echo'
+  <br>
+  <br>
+  <div class="alert alert-success alert-dismissible fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>'.$_SESSION["userid"].'</strong> te has logueado como <strong>'.$_SESSION["typeu"].'</strong>
+  </div>
+';
+    
+} 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +73,42 @@ if (isset($_SESSION["userid"])){
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
   <nav class="navbar navbar-default navbar-fixed-top" id="Navbar">
-    <script src="Script\NavBarP.js"></script>
+    <?php 
+   
+    ?>
+    <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                     
+      </button>
+      <a class="navbar-brand" href="Inicio.php">Crowley</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">INICIO</a></li>
+        <li><a href="#contact">CONTACTANOS</a></li>
+        <li><a href="#temas">TEMAS</a></li>
+        <?php
+         if (isset($_SESSION["userid"])){
+          if($_SESSION["typeu"] == 'Cliente'){
+             
+              echo '<li class="nav-item"><a class="nav-link" href="modificar.php"><i class="glyphicon glyphicon-user"></i>'.$_SESSION["userid"].' ['.$_SESSION["typeu"].']</a></li>';
+            
+          } else if ($_SESSION["typeu"] = 'Administrador'){
+            
+             echo '<li class="nav-item"><a class="nav-link" href="modificar.php"><i class="glyphicon glyphicon-user"></i> '.$_SESSION["userid"].' ['.$_SESSION["typeu"].']</a></li>';
+            
+          }
+          
+      } 
+    
+        ?>
+        <li><a href="includes/logout.inc.php" class="glyphicon glyphicon-log-out ">CERRAR SESION</a></li>
+      </ul>
+    </div>
+  </div>
   </nav>
 
   <div class="jumbotron text-center">
