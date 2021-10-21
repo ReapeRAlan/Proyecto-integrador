@@ -3,9 +3,10 @@ if(isset($_POST["submit"])){
     
     //Obteniendo datos del formulario
     $uid =  $_POST["uid"];
-    $uname =  $_POST["uname"];
-    $check =  $_POST["myCheck"];
-  
+    $utype = strtoupper($_POST["utype"]);
+    require_once 'dbh.inc.php';
+    require_once 'functions.inc.php';
+    updateType($dbh, $uid, $utype);
     
         
 
@@ -13,21 +14,7 @@ if(isset($_POST["submit"])){
    
     
 
-    if ($check == "true"){
-        require_once 'dbh.inc.php';
-        require_once 'functions.inc.php';
-        $upwd = $_POST["upwd"];
-        updatePwd($dbh, $uid, $upwd);
-        
-        
-    }else{
-        require_once 'dbh.inc.php';
-        require_once 'functions.inc.php';
-
-        updateProduct($dbh, $uid, $uname);
-       
-    }
-
+   
   
 
     //Incluyendo archivos externos

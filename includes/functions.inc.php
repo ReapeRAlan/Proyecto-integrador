@@ -22,9 +22,9 @@
     }
 
      //Función para validar los campos vacios en la forma de registro de productos
-     function emptyInputRecord($pid, $pname, $pdesc, $pcosto, $pprecio, $pexist){
+     function emptyInputRecord($pid, $pname, $pdesc){
         $result;
-        if(empty($pid) || empty($pname) || empty($pdesc)|| empty($pcosto)|| empty($pprecio)|| empty($pexist)){
+        if(empty($pid) || empty($pname) || empty($pdesc)){
             $result = true;
         } else {
             $result = false;
@@ -66,29 +66,7 @@
         }
     }
 
-    //Función para validar si existe el producto dentro de la base de datos
-    function pidExist($dbh, $pid){
-        
-            $result;
-            //Preparando la sentencia SQL
-            $sentencia = $dbh->prepare("SELECT * FROM inventario WHERE ID_producto = :producto");
-            $sentencia->bindParam(':producto', $pid);
-            //Ejecutando la sentencia
-            $sentencia->execute();
-            //Obteniendo los datos
-            $usuarios = $sentencia->fetch(PDO::FETCH_ASSOC);
-            
-            //Valiando si trae datos la búsqueda
-            $cuenta = $sentencia->rowCount();
-            
-            if($cuenta >= 1){
-                return $cuenta;
-            } else {
-                $result = false;
-                return $result;
-            }
-        }
-
+    
     //Función para validar la conformación de la contraseña
     function invalidPwd($clave){
 		$contar = 0;
@@ -165,7 +143,7 @@
     function loginUser($dbh, $username, $pwd){
 
         //Preparando la sentencia SQL
-        $sentencia = $dbh->prepare("SELECT * FROM usuarios WHERE id_usuario = :user");
+        $sentencia = $dbh->prepare("SELECT * FROM usuarios WHERE ID_Usuario = :user");
         $sentencia->bindParam(':user', $username);
         //Ejecutando la sentencia
         $sentencia->execute();
@@ -180,6 +158,7 @@
         if( $checkPwd === true){
             session_start();
             $_SESSION["userid"] = $usuarios["Nombre_usuario"];
+            $_SESSION["idu"] = $usuarios["ID_Usuario"];
 
             if($usuarios["Tipo_usuario"] == 'C'){
                 $_SESSION["typeu"] = 'Cliente'; 
@@ -242,15 +221,12 @@
     }
 
     //Función para actualizar los datos del producto
-    function updateProduct($dbh, $pid, $pname, $pdesc, $pcosto, $pprecio, $pexist){
+    function updateProduct($dbh, $uid, $uname){
         //Preparando la sentencia SQL
-        $sentencia = $dbh->prepare("UPDATE inventario SET Nombre_producto = :prodname, Descripcion = :prodesc, Costo = :prodcost, Precio = :prodprecio, Existencia = :prodexist WHERE ID_producto = :prodid;");
-        $sentencia->bindParam(':prodid', $pid);
-        $sentencia->bindParam(':prodname', $pname);
-        $sentencia->bindParam(':prodesc', $pdesc);
-        $sentencia->bindParam(':prodcost', $pcosto);
-        $sentencia->bindParam(':prodprecio', $pprecio);
-        $sentencia->bindParam(':prodexist', $pexist);
+        $sentencia = $dbh->prepare("UPDATE usuarios SET Nombre_usuario = :usname WHERE ID_Usuario = :usid;");
+        $sentencia->bindParam(':usid', $uid);
+        $sentencia->bindParam(':usname', $uname);
+        
 
         try{
             //Ejecutando la sentencia
@@ -258,9 +234,47 @@
         } catch (Exception $e){
             $sentencia->rollback();
             throw $e;
-            header("location: ../inventario.php?error=stmtfailed");
+            header("location: ../modificarUsuario.php?error=stmtfailed");
         }
-        header("location: ../inventario.php?error=Unone");
+        header("location: ../modificar.php?error=none");
+    }
+     //Función para actualizar los datos del producto
+     function updatePwd($dbh, $uid, $upwd){
+        //Preparando la sentencia SQL
+        
+        $sentencia = $dbh->prepare("UPDATE usuarios SET Password = :pwd WHERE ID_Usuario = :usid;");
+        $sentencia->bindParam(':usid', $uid);
+        $hashedPwd = password_hash($upwd, PASSWORD_DEFAULT); 
+        $sentencia->bindParam(':pwd', $hashedPwd);
+        
+        
+
+        try{
+            //Ejecutando la sentencia
+            $sentencia->execute();
+        } catch (Exception $e){
+            $sentencia->rollback();
+            throw $e;
+            header("location: ../modificarUsuario.php?error=stmtfailed");
+        }
+        header("location: ../modificar.php?error=none");
+    }
+    function updateType($dbh, $uid, $utype){
+        //Preparando la sentencia SQL
+        $sentencia = $dbh->prepare("UPDATE usuarios SET Tipo_usuario = :usname WHERE ID_Usuario = :usid;");
+        $sentencia->bindParam(':usid', $uid);
+        $sentencia->bindParam(':usname', $utype);
+        
+
+        try{
+            //Ejecutando la sentencia
+            $sentencia->execute();
+        } catch (Exception $e){
+            $sentencia->rollback();
+            throw $e;
+            header("location: ../modificarUsuario.php?error=stmtfailed");
+        }
+        header("location: ../modificar.php?error=none");
     }
 
     //Función para eliminar los datos de un producto

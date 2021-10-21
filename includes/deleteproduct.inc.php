@@ -14,10 +14,10 @@ if(isset($_POST["submit"])){
     require_once 'functions.inc.php';
 
     //Validando si el ID de producto ya existe
-    if(pidExist($dbh, $pid) == false){
-        header('location: ../registrarproducto.php?error=productdoesnotexist');
-        exit();
-    }
+   // if(pidExist($dbh, $pid) == false){
+    //    header('location: ../registrarproducto.php?error=productdoesnotexist');
+    //    exit();
+  //  }
     
     //Eliminando el producto
     deleteProduct($dbh, $pid, $pname, $pdesc, $pcosto, $pprecio, $pexist);

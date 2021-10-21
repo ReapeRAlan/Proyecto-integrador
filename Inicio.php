@@ -13,6 +13,8 @@ if (isset($_SESSION["userid"])){
   echo'
   <br>
   <br>
+  <br>
+  <br>
   <div class="alert alert-success alert-dismissible fade in">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>'.$_SESSION["userid"].'</strong> te has logueado como <strong>'.$_SESSION["typeu"].'</strong>
